@@ -1,0 +1,70 @@
+/* cart.css */
+
+.cart-container {
+  background-color: #f3f3f3;
+  padding: 20px;
+  margin: 20px 10px 20px 10px;
+}
+
+.cart-main {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.label-items {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid gray;
+  padding: 10px;
+  flex-direction: row; /* Set to row for one line */
+}
+
+.cart-Items {
+  width: 100%;
+  border: 1px solid gray;
+  padding: 10px;
+}
+
+
+.product-item{
+  display: flex;
+  justify-content: space-between;
+  
+}
+.cart-summary {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid gray;
+  padding: 10px;
+  flex-direction: row; /* Set to row for one line */
+}
+
+.label {
+  margin-bottom: 10px;
+}
+
+.product-details {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  flex-direction: column; /* Set to column for one below each other */
+  border-bottom: 1px solid gray; /* Add a border to separate each product's details */
+  padding: 10px;
+}
+
+.cancel-icon {
+  cursor: pointer;
+  margin-left: 10px;
+  color: gray;
+}
+
+.btn-cart {
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}

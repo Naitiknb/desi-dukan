@@ -1,158 +1,250 @@
 body {
-    display: flex;
-    margin: 0;
-  }
-  
-  #root {
-    width: 100%; 
-  }
-  
-
-  /* Make the navigation bar fixed at the top */
-
-  .box { 
-    background-color: #34AD54;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between; /* Center content horizontally */
-    align-items: center;
-  }
-  
-  .items {
-    display: flex;
-    flex-wrap: wrap;
-    font-size: 20px;
-    justify-content: center;
-    align-items: center;
-  text-align: center;
-  color: #000;
-  }
-  
-  .items label {
-    display: flex;
-    flex-wrap: wrap;
-    margin-right: 70px; 
-  }
-
-  a {
-    text-decoration: none;
-  }
-
-  
-  .logo {
-    display: flex;
-    margin: 0;
-    margin-left: 40px;
-  }
-  
-  #dropdown {
-    position: absolute;
-    background: white;
-    margin-top: -10px;
-    margin-left: 880px;
-    padding: 10px 20px;
-    border-radius: 30px;
-    width: 165px;
-    background-color: #34AD54;
-  }
-  
-  #dropdown ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column; /* Display list items vertically */
-    text-align: left; /* Align items to the left */
-  }
-  
-  #dropdown li {
-    margin: 5px 5px 5px 30px; /* Add margin between list items */
-  }
-  
-  #dropdown button:hover {
-    background-color: white;
-    color: black;
-    border-radius: 30px;
-    margin: 5px 5px 5px 30px;
-  }
-  
-
-
-  #search {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    flex-wrap: wrap;
-    border-radius: 30px;
-    width: 150px;
-    color: black;
-    height: 35px;
-    background-color: white;
-    border:   1px solid #000; 
-    margin: 0 96px 0 54px;
-    font-size :15px;
-    outline: rgba(193, 240, 176, 0.67);
-  }
-  #search:focus {
-    border-color: rgba(193, 240, 176, 0.67); 
-  }
-
-
-  .card{
-    width: 300px;
-    height: 500px;
-    margin: 40px;
-  }
-
-
-
-  /* styles.css */
-
-/* ProductCard.css */
-
-
-/* ProductCard.css */
-
-
-
-
-h2{
-  text-align: center;
-  font-size: 20px;
-  margin:30px;
- 
+  display: flex;
+  margin: 0;
 }
 
-.product-box{
+#root {
+  width: 100%;
+}
+
+/* Make the navigation bar fixed at the top */
+.box {
+  background-color: #34AD54;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* Center content horizontally */
+  align-items: center;
+}
+
+.items {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 20px;
   justify-content: center;
   align-items: center;
-margin-bottom:30px;
-padding: 30px;
-background-color: #34AD54;
-margin-top: 300px;
-
-}
-
-.product-card1{
-  height: 300px;
-  width: 230px;
-  background-color:white;
- position: absolute;
- bottom: 100px;
- margin-left: 200px;
- border-radius: 30px;
-}
-
-h4{
-  color: #263A4F;
   text-align: center;
-  margin-top: 50px;
+  color: #000;
 }
 
-p{
+.items label {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 70px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.logo {
+  display: flex;
+  margin: 0;
+  margin-left: 40px;
+}
+
+/* mainpage.css */
+/* mainpage.css */
+
+/* mainpage.css */
+
+.dropdown {
+  background-color: #34AD54;
+  width: 140px;
+  border-radius: 5px;
+  position: absolute;
+  top: 79px;
+  z-index: 1;
+}
+
+.dropdown.active {
+  display: block;
+}
+
+#dropdown {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+#dropdown li {
+  margin: 5px 0;
+  text-align: center;
+}
+
+#dropdown li a {
+  color: black; /* Set text color to black */
+  text-decoration: none;
+}
+
+#dropdown li a:hover {
+  background-color: white;
+  color: black; /* Set text color to black */
+  border-radius: 1px;
+  width: 100%;
+}
+
+
+
+
+
+#search {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-wrap: wrap;
+  border-radius: 30px;
+  width: 150px;
   color: black;
-  text-align: center;
-  margin-top: 15px;
-  font-size: 20px;
+  height: 35px;
+  background-color: white;
+  border: 1px solid #000;
+  margin: 0 96px 0 54px;
+  font-size: 15px;
+  outline: rgba(193, 240, 176, 0.67);
+}
+
+#search:focus {
+  border-color: rgba(193, 240, 176, 0.67);
+}
+
+.card {
+  width: 300px;
+  height: 500px;
+  margin: 40px;
+}
+
+/* ProductCard.css */
+
+
+.product-cards{
+  display: flex;
+  justify-content: space-between;
+ margin:  30px 30px 30px 30px;
+}
+
+
+
+
+
+
+
+
+.product-actions {
+  display: flex;
+  margin-top: 8px;
+  margin-left: 10px;
+}
+
+
+
+
+
+
+
+.button:hover {
+  color: rgb(72, 176, 68);
+opacity: 20px;
+cursor: pointer;
+}
+
+
+.button-2:hover{
+  color: rgb(72, 176, 68);
+  opacity: 20px;
+  cursor: pointer;
+}
+.product-box {
+  background-color: gray;
+  width: 90%;
+  height: 400px;
+  margin: 20px auto; /* Adjust the margin as needed */
+  display: flex;
+}
+
+.button::after {
+  content: "";
+  position: absolute;
+  height: 5.5%;
+  border-right: 1px solid gray; /* Adjust the border style as needed */
+  margin-top: -15px;
+  margin-left: 20px; /* Adjust the margin as needed */
+}
+
+/* ProductCard.css */
+
+.product-price {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: gray;
+  margin-top: 5px;
+}
+
+.discounted-price{
+  display: flex;
+}
+
+/* Add this to your CSS file */
+.cart-count {
+  background-color: white;
+  color: #34AD54;
+  border-radius: 50%;
+  padding: 0.5px;
+  width: 20px;
+  position: absolute;
+  top: 5px;
+  right: 370px;
+  height: 20px;
+  font-size: 15px;
+  text-align: center; /* Adjust this value based on your design */
+}
+
+
+@media (max-width: 768px) {
+  .product-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    border-color: #34AD54;
+    justify-content: center;
+  }
+
+  .product-1,
+  .product-2,
+  .product-3,
+  .product-4 {
+    margin-bottom: 30px; /* Adjust as needed */
+  
+  }
+}
+
+.product-card {
+  margin-bottom: 20px; /* Adjust as needed */
+  border: 1px solid green; /* Add thin green border to each product card */
+}
+@media (max-width: 768px){
+.cart-count {
+  background-color: white;
+  color: #34AD54;
+  border-radius: 50%;
+  padding: 0.5px;
+  width: fit-content;
+  position: absolute;
+  top: 110px;
+  right: 252px;
+  height: 15px;
+  font-size:10px;
+  text-align: center; /* Adjust this value based on your design */
+}
 }
