@@ -9,25 +9,31 @@ import { Link } from 'react-router-dom';
 import {auth}  from '../../firebase.js';
 import { signInWithEmailAndPassword} from 'firebase/auth';
 
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [type, setType] = useState('password');
-  const [icon, setIcon] = useState(eyeOff);
+  const [setIcon] = useState(eyeOff);
+  const [invalid,setinvalid]= useState(null);
 
 
 
-  const Login = (e) =>{
-    e.preventDefault();
-    signInWithEmailAndPassword(auth,email,password)
-    .then((userCredential)=>{
-      console.log(userCredential)
-    })
-    .catch((error)=>{
-      console.log(error)
+  const Login = async (event) => {
+    event.preventDefault(); // Prevent the default form submission behavior
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+      console.log("User signed up:", user);
+      window.location.href="/Mainpage";
+    } catch (error) {
+      console.error("Sign-up error:", error.message);
+
+      setinvalid("Invalid email or password")
     }
-    )
-  }
+  };
+
+
 
 
   const toggle = () => {
@@ -52,7 +58,7 @@ const Login = () => {
             <label className='ml-[30px] '>Email</label> 
            
             <input className='ml-[80px] w-[25%] bg-gray-100 '   style={{ border: '0.5px solid gray '
-           }} type='email'   ></input>
+           }} type='email'  onChange={(event) => setEmail(event.target.value)}  ></input>
           </div>
           <div>
             <label className='ml-[30px]'>Password</label>
@@ -61,7 +67,7 @@ const Login = () => {
               style={{ border: '0.5px solid gray' }}
               type={type}
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(event) => setPassword(event.target.value)}
               autoComplete="current-password"
             />
            <FontAwesomeIcon onClick={toggle} className='toggle-password-icon relative right-[25px]' icon={type === 'password' ? faEye : faEyeSlash} />
@@ -70,11 +76,17 @@ const Login = () => {
           <div>
             <input className='ml-[30px] mt-[21px] ' type='checkbox'></input>
             <label className='ml-[10px]'> Remember Me</label>
+            <Link to="/Signup"><label className=' ml-[30px]'>Reset Password ?</label></Link>
           </div>
 
           <button className='login-btn  bg-[#4caf50] p-[10px] w-[150px] rounded-[20px] m-[30px]   '>Log in</button>
           <Link to="/signup">
           <button className='login-btn  bg-[#4caf50] p-[10px] w-[180px] rounded-[20px] m-[30px]   '>Create  Account</button></Link>
+          
+          {invalid && (
+            <div className="error-message ml-[30px] mt-[10px] text-red-500">{invalid}</div>
+          )}
+          
         </form>
       </div>
     </div>

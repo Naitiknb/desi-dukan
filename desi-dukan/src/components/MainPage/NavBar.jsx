@@ -10,6 +10,10 @@ import {faUser} from '@fortawesome/free-solid-svg-icons';
 
 
 const NavBar = ({ cartCount} ) => {
+
+
+  const [searchTerm, setSearchTerm] = useState("");
+
   const [isDropdownOpen, setDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -76,7 +80,7 @@ const NavBar = ({ cartCount} ) => {
         <Link to="/cart2">
         <b>
           <label style={{ color: 'black' }}>
-            Cart <FontAwesomeIcon icon={faCartShopping} className="ml-2 mt-1.5" />
+            Cart <FontAwesomeIcon icon={faCartShopping} className=" relative ml -[2px] mt-1.5" />
             {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
           </label>
         </b>
@@ -87,7 +91,14 @@ const NavBar = ({ cartCount} ) => {
           <b>
             <div className='search-input-container'>
               <FontAwesomeIcon icon={faMagnifyingGlass} className='search-icon' />
-              <input type='search' id='search' placeholder='Search' />
+              <input
+                   type='search'
+                    id='search'
+                    placeholder='Search'
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+/>
+
               <Link to='/Login'>
               <FontAwesomeIcon icon={faUser} className='relative left-[-30px] top-[-3px]' style={{color:'black'}}/></Link>
             </div>

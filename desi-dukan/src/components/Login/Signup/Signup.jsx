@@ -1,29 +1,45 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import NavBar from '../../MainPage/NavBar';
 import './Login.css';
 import {auth}  from '../../firebase.js';
 import { createUserWithEmailAndPassword} from 'firebase/auth';
 
 
+
+
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [ confirmPassword, setConfirmPassword] = useState("");
   const [passwordVisibility, setPasswordVisibility] = useState(false);
+  const [passwordsMatch, setPasswordsMatch] = useState(true);
+  const navigate = useNavigate();
+
 
 
   const SignIn = async (event) => {
-    event.preventDefault(); // Prevent the default form submission behavior
+    event.preventDefault();
+  
+    if (password !== confirmPassword) {
+      console.error("Passwords do not match");
+      setPasswordsMatch(false); // Set state to indicate that passwords do not match
+      return;
+    }
+  
     try {
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password, confirmPassword);
       const user = userCredential.user;
       console.log("User signed up:", user);
+      navigate('/Login');
     } catch (error) {
       console.error("Sign-up error:", error.message);
     }
   };
+  
+  
   
 
 
@@ -71,8 +87,8 @@ const Signup = () => {
               type='password'
               className='ml-[52px] w-[25%] bg-gray-100 mt-[20px]'
               style={{ border: '0.5px solid gray' }}
-              
-              
+              value={confirmPassword}
+              onChange={(event) => setConfirmPassword(event.target.value)}
               autoComplete="new-password"
             />
           </div>
@@ -80,10 +96,14 @@ const Signup = () => {
             <input className='ml-[30px] mt-[21px]' type='checkbox' />
             <label className='ml-[10px]'> Remember Me</label>
           </div>
-          
+          <Link to="/Login">
           <button onClick={SignIn} className='login-btn bg-[#4caf50] p-[10px] w-[150px] rounded-[20px] m-[30px]'>
             Sign Up
-          </button>
+          </button></Link>
+          
+          {!passwordsMatch && (
+          <label className='donot ml-[10px] text-red-400'>Passwords do not match</label>
+        )}
         </form>
       </div>
     </div>

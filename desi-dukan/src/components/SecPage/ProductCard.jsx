@@ -8,15 +8,20 @@ import { faEye, faBagShopping } from '@fortawesome/free-solid-svg-icons';
 
 
 const ProductCard = ({ addToCart, cartCount, updateCartCount }) => {
+
+
+
+
+
   return (
     <div>
       <h2 style={{ color: '#34AD54', textAlign: 'center' }}>PRODUCTS</h2>
       <h2 style={{ fontSize: '40px', textAlign: 'center' }}>Our Fresh & Organic Products</h2>
-
-      <div className='product-cards mb-[20px] '>
+      (
+      <div   className='product-cards mb-[20px] '>
         <div className='product-1 bg-white h-[350px] mt-[20px]' style={{ borderColor: 'gray border', border: '2px solid green' }}>
           <img className='w-[253px] h-[230px]  bg-[#e0d8d8]' src={tomato} alt='tomato'></img>
-          <p style={{ textAlign: 'center', fontSize: '23px', fontFamily: 'Trebuchet MS ,sans-serif' }}>Fresh tomato</p>
+          <p  style={{ textAlign: 'center', fontSize: '23px', fontFamily: 'Trebuchet MS ,sans-serif' }}>Fresh tomato</p>
           <p style={{ textAlign: 'center', color: 'green', borderBottom: '1px solid gray' }}>$1</p>
           <div className="product-actions">
             <p className='button'>
@@ -76,7 +81,10 @@ const ProductCard = ({ addToCart, cartCount, updateCartCount }) => {
           </div>
         </div>
       </div>
+       )
     </div>
+
+       
   );
 };
 
